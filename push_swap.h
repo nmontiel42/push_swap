@@ -6,7 +6,7 @@
 /*   By: nmontiel <montielarce9@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 11:50:33 by nmontiel          #+#    #+#             */
-/*   Updated: 2023/11/08 16:25:51 by nmontiel         ###   ########.fr       */
+/*   Updated: 2023/11/09 11:20:34 by nmontiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ int		space(char **str);
 int		main(int argc, char **argv);
 
 //moves.c
-void	make_actions_a(t_stack **stack_a, int *actions_a);
-void	make_actions_b(t_stack **stack_b, int *actions_b);
+void	make_actions(t_stack **stack_a, t_stack **stack_b,
+			int *actions_a, int *actions_b);
 void	do_both_moves(t_stack **stack_a, t_stack **stack_b,
 			int *actions_a, int *actions_b);
 void	make_move(t_stack **stack_a, t_stack **stack_b,

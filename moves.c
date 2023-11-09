@@ -6,15 +6,16 @@
 /*   By: nmontiel <montielarce9@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 12:38:02 by nmontiel          #+#    #+#             */
-/*   Updated: 2023/11/08 12:32:56 by nmontiel         ###   ########.fr       */
+/*   Updated: 2023/11/09 11:20:16 by nmontiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	make_actions_a(t_stack **stack_a, int *actions_a)
+void	make_actions(t_stack **stack_a, t_stack **stack_b,
+			int *actions_a, int *actions_b)
 {
-	while (*actions_a)
+	while (*actions_a || *actions_b)
 	{
 		if (*actions_a > 0)
 		{
@@ -26,14 +27,7 @@ void	make_actions_a(t_stack **stack_a, int *actions_a)
 			make_rra(stack_a);
 			(*actions_a)++;
 		}
-	}
-}
-
-void	make_actions_b(t_stack **stack_b, int *actions_b)
-{
-	while (*actions_b)
-	{
-		if (*actions_b > 0)
+		else if (*actions_b > 0)
 		{
 			make_rb(stack_b);
 			(*actions_b)--;
@@ -73,7 +67,6 @@ void	make_move(t_stack **stack_a, t_stack **stack_b,
 				int actions_a, int actions_b)
 {
 	do_both_moves(stack_a, stack_b, &actions_a, &actions_b);
-	make_actions_a(stack_a, &actions_a);
-	make_actions_b(stack_b, &actions_b);
+	make_actions(stack_a, stack_b, &actions_a, &actions_b);
 	make_pa(stack_a, stack_b);
 }
