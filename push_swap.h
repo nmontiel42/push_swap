@@ -6,7 +6,7 @@
 /*   By: nmontiel <montielarce9@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 11:50:33 by nmontiel          #+#    #+#             */
-/*   Updated: 2023/11/09 11:20:34 by nmontiel         ###   ########.fr       */
+/*   Updated: 2023/11/09 16:31:11 by nmontiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void	new_last_element(t_stack **stack, t_stack *new);
 
 //main.c
 //void		ft_leaks(void);
-void	free_str(char **str);
 int		space(char **str);
 int		main(int argc, char **argv);
 
@@ -103,13 +102,13 @@ void	set_target(t_stack **stack_a, t_stack **stack_b);
 int		stack_size(t_stack *stack);
 int		is_sorted(t_stack *stack_a);
 void	free_stack(t_stack **stack);
-void	set_index(t_stack **stack);
 int		my_abs(int num);
 
 //utils2.c
 void	set_pos(t_stack **stack);
 void	set_index_stack_a(t_stack *stack_a, int len_list);
 int		highest_index(t_stack *stack);
+void	free_str(char **str);
 
 /*BONUS*/
 

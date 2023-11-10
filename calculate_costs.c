@@ -6,7 +6,7 @@
 /*   By: nmontiel <montielarce9@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:34:11 by nmontiel          #+#    #+#             */
-/*   Updated: 2023/11/08 12:22:52 by nmontiel         ###   ########.fr       */
+/*   Updated: 2023/11/09 16:00:31 by nmontiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	cal_cheap(t_stack **stack_a, t_stack **stack_b)
 	int		actions_b;
 	int		cheap_cost;
 
+	if (*stack_b == NULL)
+		return ;
 	cheap_cost = 2147483647;
 	temp = *stack_b;
 	while (temp)
@@ -38,22 +40,22 @@ void	cal_cheap(t_stack **stack_a, t_stack **stack_b)
 void	cal_cost(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*cpy_b;
-	t_stack	*cpy_a;
 	int		size_a;
 	int		size_b;
 
-	cpy_a = *stack_a;
 	cpy_b = *stack_b;
 	size_a = stack_size(*stack_a);
 	size_b = stack_size(*stack_b);
 	while (cpy_b)
 	{
-		cpy_b->actions_b = cpy_b->position;
 		if (cpy_b->position > size_b / 2)
 			cpy_b->actions_b = (size_b - cpy_b->position) * -1;
-		cpy_b->actions_a = cpy_b->destinal_pos;
+		else
+			cpy_b->actions_b = cpy_b->position;
 		if (cpy_b->destinal_pos > size_a / 2)
 			cpy_b->actions_a = (size_a - cpy_b->destinal_pos) * -1;
+		else
+			cpy_b->actions_a = cpy_b->destinal_pos;
 		cpy_b = cpy_b->next;
 	}
 }

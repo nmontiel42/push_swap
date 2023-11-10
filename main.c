@@ -6,7 +6,7 @@
 /*   By: nmontiel <montielarce9@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 12:13:43 by nmontiel          #+#    #+#             */
-/*   Updated: 2023/11/08 11:41:38 by nmontiel         ###   ########.fr       */
+/*   Updated: 2023/11/09 16:02:28 by nmontiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,6 @@ int	space(char **str)
 		o++;
 	}
 	return (0);
-}
-
-void	free_str(char **str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		free(str[i]);
-		i++;
-	}
-	free(str);
 }
 //atexit(ft_leaks);, antes de if (argc == 1);
 

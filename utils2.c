@@ -6,7 +6,7 @@
 /*   By: nmontiel <montielarce9@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:42:45 by nmontiel          #+#    #+#             */
-/*   Updated: 2023/11/08 12:32:48 by nmontiel         ###   ########.fr       */
+/*   Updated: 2023/11/09 16:31:50 by nmontiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@ void	set_pos(t_stack **stack)
 	pos = 0;
 	while (tmp)
 	{
-		tmp->position = pos;
+		tmp->position = pos++;
 		tmp = tmp->next;
-		pos++;
 	}
 }
 
@@ -68,4 +67,17 @@ int	highest_index(t_stack *stack)
 		stack = stack->next;
 	}
 	return (index);
+}
+
+void	free_str(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
 }

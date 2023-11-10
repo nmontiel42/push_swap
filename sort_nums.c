@@ -6,7 +6,7 @@
 /*   By: nmontiel <montielarce9@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 11:37:55 by nmontiel          #+#    #+#             */
-/*   Updated: 2023/11/08 14:07:51 by nmontiel         ###   ########.fr       */
+/*   Updated: 2023/11/09 16:21:06 by nmontiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,11 @@
 void	move_to_b(t_stack **stack_a, t_stack **stack_b)
 {
 	int	size;
-	int	i;
 	int	push;
 
 	size = stack_size(*stack_a);
-	i = 0;
 	push = 0;
-	while (size > 6 && i < size && push < size / 2)
+	while (push < size / 2 && size > 6)
 	{
 		if ((*stack_a)->index <= size / 2)
 		{
@@ -30,9 +28,8 @@ void	move_to_b(t_stack **stack_a, t_stack **stack_b)
 		}
 		else
 			make_ra(stack_a);
-		i++;
 	}
-	while (size - push > 3)
+	while (push < size - 3)
 	{
 		make_pb(stack_a, stack_b);
 		push++;
@@ -81,10 +78,11 @@ void	sort_stack_a(t_stack **stack_a)
 	size = stack_size(*stack_a);
 	if (min > size / 2)
 	{
-		while (min < size)
+		min = size - min;
+		while (min > 0)
 		{
 			make_rra(stack_a);
-			min++;
+			min--;
 		}
 	}
 	else

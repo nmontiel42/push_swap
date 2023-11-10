@@ -6,7 +6,7 @@
 /*   By: nmontiel <montielarce9@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:41:15 by nmontiel          #+#    #+#             */
-/*   Updated: 2023/11/08 12:21:55 by nmontiel         ###   ########.fr       */
+/*   Updated: 2023/11/09 16:27:48 by nmontiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,16 +67,13 @@ int	target_to_b(t_stack **stack_a, int b_index,
 void	set_target(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*temp;
-	int		target_pos;
 
 	temp = *stack_b;
-	target_pos = 0;
 	set_pos(stack_a);
 	set_pos(stack_b);
 	while (temp)
 	{
-		target_pos = target_to_b(stack_a, temp->index, 2147483647, target_pos);
-		temp->destinal_pos = target_pos;
+		temp->destinal_pos = target_to_b(stack_a, temp->index, 2147483647, 0);
 		temp = temp->next;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: nmontiel <montielarce9@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 12:04:13 by nmontiel          #+#    #+#             */
-/*   Updated: 2023/11/08 14:08:00 by nmontiel         ###   ########.fr       */
+/*   Updated: 2023/11/09 16:31:33 by nmontiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,26 +51,6 @@ void	free_stack(t_stack **stack)
 		current = next;
 	}
 	*stack = NULL;
-}
-
-void	set_index(t_stack **stack)
-{
-	t_stack	*current;
-	t_stack	*cmp;
-
-	current = *stack;
-	while (current)
-	{
-		cmp = *stack;
-		current->index = 1;
-		while (cmp)
-		{
-			if (cmp->num < current->num)
-				current->index++;
-			cmp = cmp->next;
-		}
-		current = current->next;
-	}
 }
 
 int	my_abs(int num)
