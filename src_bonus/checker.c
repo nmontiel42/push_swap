@@ -86,7 +86,7 @@ void	start_program(t_stack ***stack_a, t_stack ***stack_b)
 void	final_check(t_stack **stack_a, t_stack **stack_b)
 {
 	(void) stack_b;
-	if (!is_sorted2(stack_a))
+	if (!is_sorted2(stack_a) && *stack_b == NULL)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
